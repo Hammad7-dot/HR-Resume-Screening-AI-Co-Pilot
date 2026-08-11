@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HR Resume Screening — AI Co-Pilot</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>HR Resume Screening <span>AI Co-Pilot</span></h1>
+  <p class="subtitle">AI scores every resume. You decide who moves forward.</p>
+</header>
+
+<main>
+  <section class="panel upload-panel">
+    <h2>1. Screen Resumes</h2>
+    <label for="category">Job category (JD)</label>
+    <select id="category"></select>
+
+    <label for="resumeFiles">Resume PDFs</label>
+    <input type="file" id="resumeFiles" accept="application/pdf" multiple>
+
+    <button id="analyzeBtn">Analyze Resumes</button>
+    <p id="uploadStatus" class="status"></p>
+  </section>
+
+  <section class="panel">
+    <div class="panel-header">
+      <h2>2. Review &amp; Decide (Human-in-the-Loop)</h2>
+      <button id="reportBtn" class="secondary">Download Report (PDF)</button>
+    </div>
+    <div id="candidateList" class="candidate-list">
+      <p class="empty-state">No candidates yet — analyze some resumes above.</p>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+python-multipart
+pdfplumber
+torch
+shap
+scikit-learn
+pandas
+numpy
+reportlab
+pydantic
