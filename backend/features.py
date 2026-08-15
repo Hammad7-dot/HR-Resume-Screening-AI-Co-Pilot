@@ -21,12 +21,26 @@ if _SKILL_BANK_PATH.exists():
 else:
     SKILL_BANK = {
         'INFORMATION-TECHNOLOGY': ['python', 'sql', 'java', 'cloud', 'aws', 'api', 'docker', 'linux', 'javascript'],
-        'HR': ['recruiting', 'onboarding', 'employee relations', 'payroll', 'hris', 'talent acquisition'],
+        'HR': ['recruiting', 'onboarding', 'employee relations', 'payroll', 'hris', 'talent acquisition',
+               'performance management', 'benefits administration', 'compliance', 'conflict resolution'],
         'DESIGNER': ['photoshop', 'figma', 'illustrator', 'ui', 'ux', 'branding', 'typography'],
         'SALES': ['crm', 'negotiation', 'lead generation', 'salesforce', 'quota', 'pipeline'],
-        'HEALTHCARE': ['patient care', 'clinical', 'hipaa', 'ehr', 'nursing', 'diagnosis'],
-        'TEACHER': ['curriculum', 'lesson planning', 'classroom management', 'assessment'],
-        'BUSINESS-DEVELOPMENT': ['partnerships', 'market research', 'strategy', 'stakeholder'],
+        'HEALTHCARE': ['patient care', 'clinical', 'hipaa', 'ehr', 'nursing', 'diagnosis',
+                       'medical terminology', 'patient safety', 'care coordination', 'vital signs'],
+        'TEACHER': ['curriculum', 'lesson planning', 'classroom management', 'assessment',
+                    'differentiated instruction', 'iep', 'student engagement', 'parent communication'],
+        'BUSINESS-DEVELOPMENT': ['partnerships', 'market research', 'strategy', 'stakeholder',
+                                  'lead generation', 'business strategy', 'negotiation', 'growth strategy',
+                                  'client acquisition'],
+        'ACCOUNTANT': ['quickbooks', 'gaap', 'accounts payable', 'accounts receivable',
+                       'reconciliation', 'general ledger', 'financial reporting', 'audit',
+                       'tax preparation', 'sap', 'budgeting', 'forecasting', 'cpa',
+                       'bookkeeping', 'payroll', 'variance analysis'],
+        'FINANCE': ['financial modeling', 'valuation', 'forecasting', 'budgeting', 'excel',
+                    'financial analysis', 'risk management', 'investment analysis', 'cfa',
+                    'variance analysis', 'cash flow'],
+        'BANKING': ['underwriting', 'kyc', 'aml', 'loan processing', 'credit analysis',
+                    'compliance', 'teller', 'risk management', 'retail banking', 'wire transfers'],
     }
     DEFAULT_SKILLS = ['communication', 'teamwork', 'project management', 'leadership', 'excel']
 

@@ -73,6 +73,8 @@ def generate_report_pdf() -> BytesIO:
         pred = c["prediction"]
         elements.append(Paragraph(f"<b>{c['filename']}</b> — {pred['fit_score']} ({pred['fit_category']}), "
                                    f"{pred['confidence']}% confidence", body))
+        if pred.get("narration"):
+            elements.append(Paragraph(pred["narration"], small))
         for feat in pred["top_features"]:
             direction = "increased" if feat["impact"] > 0 else "decreased"
             elements.append(Paragraph(

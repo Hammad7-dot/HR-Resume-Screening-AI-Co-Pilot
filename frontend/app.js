@@ -53,6 +53,7 @@ function renderCandidate(c) {
         <span><strong>Experience:</strong> ${pred.raw_features.years_experience} yrs</span>
       </div>
 
+      <p class="narration">${pred.narration ?? ""}</p>
       <ul class="shap-list">${shapItems}</ul>
 
       ${decisionTag}

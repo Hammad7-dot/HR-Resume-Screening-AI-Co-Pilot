@@ -121,8 +121,15 @@ button.modify { background: var(--moderate); }
   color: var(--muted);
 }
 
-.shap-list {
+.narration {
   margin: 10px 0 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink);
+}
+
+.shap-list {
+  margin: 6px 0 0;
   padding-left: 18px;
   font-size: 13px;
 }

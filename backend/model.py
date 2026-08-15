@@ -80,6 +80,43 @@ class ResumeScorer:
             return "Moderate Fit"
         return "Weak Fit"
 
+    _FEATURE_PHRASES = {
+        "skills_count": ("a strong match on relevant skills", "few relevant skills detected in the resume"),
+        "years_experience": ("solid years of experience", "limited years of experience"),
+        "education_level": ("a strong education background", "a lighter education background"),
+        "certifications_count": ("relevant certifications", "no notable certifications"),
+    }
+
+    @classmethod
+    def _generate_narration(cls, fit_score, fit_category, top_features, raw_features):
+        """Template-based (no LLM) plain-English summary of why a resume scored as it did."""
+        numeric_pairs = [
+            (f["feature"], f["impact"]) for f in top_features if not f["feature"].startswith("cat_")
+        ]
+        numeric_pairs.sort(key=lambda t: abs(t[1]), reverse=True)
+
+        if fit_category == "Strong Fit":
+            lead_in = f"Scored well ({fit_score}/100)"
+        elif fit_category == "Moderate Fit":
+            lead_in = f"Scored moderately ({fit_score}/100)"
+        else:
+            lead_in = f"Scored low ({fit_score}/100)"
+
+        phrases = []
+        for feature, impact in numeric_pairs[:2]:
+            pair = cls._FEATURE_PHRASES.get(feature)
+            if not pair:
+                continue
+            phrases.append((pair[0] if impact >= 0 else pair[1], impact >= 0))
+
+        if not phrases:
+            return f"{lead_in} — no single feature stood out as decisive; consider reviewing the resume manually."
+
+        if len(phrases) == 1:
+            return f"{lead_in} mainly because of {phrases[0][0]}."
+        connector = "and" if phrases[0][1] == phrases[1][1] else "despite"
+        return f"{lead_in} mainly because of {phrases[0][0]}, {connector} {phrases[1][0]}."
+
     def score_resume(self, resume_text: str, category: str) -> dict:
         if category not in KNOWN_CATEGORIES:
             category = "GENERAL"  # falls through to all-zero cat_* row; still scoreable
@@ -94,12 +131,15 @@ class ResumeScorer:
         mean_score = float(np.clip(mean_score, 0, 100))
 
         top_features = self._explain(x_tensor)
+        fit_category = self.fit_category(mean_score)
+        narration = self._generate_narration(round(mean_score, 1), fit_category, top_features, raw_features)
 
         return {
             "fit_score": round(mean_score, 1),
-            "fit_category": self.fit_category(mean_score),
+            "fit_category": fit_category,
             "confidence": round(float(confidence), 1),
             "top_features": top_features,
+            "narration": narration,
             "raw_features": {
                 "years_experience": raw_features["years_experience"],
                 "education_level": raw_features["education_level"],
