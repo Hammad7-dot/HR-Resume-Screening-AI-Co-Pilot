@@ -13,6 +13,8 @@ Recruiters manually screening large volumes of resumes is slow, inconsistent, an
 - **Explainable AI** — calibrated confidence score (MC-Dropout) and top SHAP features per prediction, shown in the UI and in the exported report.
 - **Human-in-the-loop** — nothing is final until a recruiter clicks Approve, Reject, or Modify Score with a reason; every decision is logged with a timestamp for audit.
 - **Downloadable report** — auto-generated PDF shortlist with Fit Scores, SHAP rationale, and the recruiter audit trail.
+- **Batch overview** — a stats bar (screened / approved / rejected / pending / average score) plus search, status filter, and sort controls for reviewing larger batches quickly.
+- **Toast feedback** — non-blocking confirmations when a resume finishes analyzing or a decision is saved.
 
 ## Project structure
 
@@ -43,6 +45,17 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000
 ```
 
 Open **http://127.0.0.1:8000** — frontend and API are served from the same process.
+
+## Tests
+
+```bash
+cd backend
+pip install -r requirements-dev.txt
+python -m uvicorn main:app --host 127.0.0.1 --port 8000  # not required to run tests
+python -m pytest tests/ -v
+```
+
+Covers feature engineering (`features.py`), the candidate/decision store (`store.py`), and the REST API (categories, resume analysis, decisions, report download) via FastAPI's `TestClient`. Tests run against the real trained model artifacts and write to a throwaway data file, so they never touch `backend/data/candidates.json`. CI runs this suite on every push via `.github/workflows/tests.yml`.
 
 ## Tech stack
 

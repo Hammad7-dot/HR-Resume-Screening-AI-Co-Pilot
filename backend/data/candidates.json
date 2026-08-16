@@ -1,0 +1,171 @@
+{
+  "6692398b": {
+    "id": "6692398b",
+    "filename": "test_resume.pdf",
+    "category": "ACCOUNTANT",
+    "prediction": {
+      "fit_score": 19.7,
+      "fit_category": "Weak Fit",
+      "confidence": 75.1,
+      "top_features": [
+        {
+          "feature": "cat_ACCOUNTANT",
+          "impact": 23.94
+        },
+        {
+          "feature": "skills_count",
+          "impact": -17.3
+        },
+        {
+          "feature": "cat_BUSINESS-DEVELOPMENT",
+          "impact": -2.38
+        }
+      ],
+      "raw_features": {
+        "years_experience": 6,
+        "education_level": 3,
+        "certifications_count": 2,
+        "skills_found": [
+          "excel"
+        ]
+      }
+    },
+    "decision": "approve",
+    "decision_reason": "Solid CPA background, worth a phone screen despite low auto-score.",
+    "modified_score": null,
+    "decided_at": "2026-08-15T22:46:17.596239",
+    "uploaded_at": "2026-08-15T22:45:13.826845"
+  },
+  "4355d37a": {
+    "id": "4355d37a",
+    "filename": "test_resume.pdf",
+    "category": "ACCOUNTANT",
+    "prediction": {
+      "fit_score": 100.0,
+      "fit_category": "Strong Fit",
+      "confidence": 0.0,
+      "top_features": [
+        {
+          "feature": "skills_count",
+          "impact": 217.89
+        },
+        {
+          "feature": "cat_ACCOUNTANT",
+          "impact": 25.21
+        },
+        {
+          "feature": "cat_INFORMATION-TECHNOLOGY",
+          "impact": 6.54
+        }
+      ],
+      "narration": "Scored well (100.0/100) mainly because of a strong match on relevant skills.",
+      "raw_features": {
+        "years_experience": 6,
+        "education_level": 3,
+        "certifications_count": 2,
+        "skills_found": [
+          "accounts payable",
+          "accounts receivable",
+          "audit",
+          "budgeting",
+          "cpa",
+          "excel",
+          "financial reporting",
+          "forecasting",
+          "gaap",
+          "quickbooks",
+          "reconciliation",
+          "sap",
+          "tax preparation"
+        ]
+      }
+    },
+    "decision": "approve",
+    "decision_reason": "Great CPA skills match",
+    "modified_score": null,
+    "decided_at": "2026-08-15T23:41:26.435415",
+    "uploaded_at": "2026-08-15T23:35:33.459795"
+  },
+  "e4ecc238": {
+    "id": "e4ecc238",
+    "filename": "it_resume.pdf",
+    "category": "HEALTHCARE",
+    "prediction": {
+      "fit_score": 3.9,
+      "fit_category": "Weak Fit",
+      "confidence": 97.0,
+      "top_features": [
+        {
+          "feature": "skills_count",
+          "impact": -28.46
+        },
+        {
+          "feature": "cat_HEALTHCARE",
+          "impact": 19.34
+        },
+        {
+          "feature": "cat_BUSINESS-DEVELOPMENT",
+          "impact": -2.12
+        }
+      ],
+      "narration": "Scored low (3.9/100) mainly because of few relevant skills detected in the resume.",
+      "raw_features": {
+        "years_experience": 2,
+        "education_level": 3,
+        "certifications_count": 0,
+        "skills_found": []
+      }
+    },
+    "decision": null,
+    "decision_reason": null,
+    "modified_score": null,
+    "decided_at": null,
+    "uploaded_at": "2026-08-15T23:35:42.586220"
+  },
+  "1fdb0853": {
+    "id": "1fdb0853",
+    "filename": "it_resume.pdf",
+    "category": "INFORMATION-TECHNOLOGY",
+    "prediction": {
+      "fit_score": 32.8,
+      "fit_category": "Moderate Fit",
+      "confidence": 60.9,
+      "top_features": [
+        {
+          "feature": "skills_count",
+          "impact": 60.88
+        },
+        {
+          "feature": "cat_INFORMATION-TECHNOLOGY",
+          "impact": -49.52
+        },
+        {
+          "feature": "cat_BUSINESS-DEVELOPMENT",
+          "impact": -1.41
+        }
+      ],
+      "narration": "Scored moderately (32.8/100) mainly because of a strong match on relevant skills.",
+      "raw_features": {
+        "years_experience": 2,
+        "education_level": 3,
+        "certifications_count": 0,
+        "skills_found": [
+          "aws",
+          "docker",
+          "git",
+          "java",
+          "javascript",
+          "kubernetes",
+          "python",
+          "react",
+          "sql"
+        ]
+      }
+    },
+    "decision": "modify",
+    "decision_reason": "Adjusted for strong portfolio, weak keyword match",
+    "modified_score": 55.0,
+    "decided_at": "2026-08-15T23:55:30.002098",
+    "uploaded_at": "2026-08-15T23:35:49.163087"
+  }
+}
