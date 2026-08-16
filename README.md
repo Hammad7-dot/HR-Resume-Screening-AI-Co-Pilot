@@ -2,7 +2,9 @@
 
 An AI-assisted resume screening web app that scores candidate fit against a job category with a trained neural network, explains every score with SHAP, and requires a recruiter to approve, reject, or modify each result before it counts as final — keeping a human in the loop at all times.
 
-**🚀 Live demo:** [hr-resume-screening-ai-co-pilot-nrhj2uka3wfbjxsqkjcfv2.streamlit.app](https://hr-resume-screening-ai-co-pilot-nrhj2uka3wfbjxsqkjcfv2.streamlit.app/)
+## Demo
+
+🚀 **[Try it live](https://hr-resume-screening-ai-co-pilot-nrhj2uka3wfbjxsqkjcfv2.streamlit.app/)** — hosted on Streamlit Community Cloud.
 
 ## Overview
 
