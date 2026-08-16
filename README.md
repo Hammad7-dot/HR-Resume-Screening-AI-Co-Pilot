@@ -2,6 +2,8 @@
 
 An AI-assisted resume screening web app that scores candidate fit against a job category with a trained neural network, explains every score with SHAP, and requires a recruiter to approve, reject, or modify each result before it counts as final — keeping a human in the loop at all times.
 
+**🚀 Live demo:** [hr-resume-screening-ai-co-pilot-nrhj2uka3wfbjxsqkjcfv2.streamlit.app](https://hr-resume-screening-ai-co-pilot-nrhj2uka3wfbjxsqkjcfv2.streamlit.app/)
+
 ## Overview
 
 Recruiters manually screening large volumes of resumes is slow, inconsistent, and prone to bias. This Co-Pilot parses resume PDFs, extracts structured features, scores fit with a trained ANN, and explains *why* using SHAP — while a recruiter stays in control of every final decision.
@@ -47,6 +49,8 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000
 Open **http://127.0.0.1:8000** — frontend and API are served from the same process.
 
 ## Streamlit Community Cloud deployment
+
+**Live app:** https://hr-resume-screening-ai-co-pilot-nrhj2uka3wfbjxsqkjcfv2.streamlit.app/
 
 `streamlit_app.py` is a Streamlit-native alternative UI that reuses the same scoring, storage, and report logic (`backend/model.py`, `features.py`, `store.py`, `reports.py`) directly in-process — no separate API server. This is what makes the app deployable on [Streamlit Community Cloud](https://share.streamlit.io), which only runs `streamlit run <file>.py` and can't host a standalone FastAPI server.
 
