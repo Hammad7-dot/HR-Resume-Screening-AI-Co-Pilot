@@ -70,3 +70,7 @@ Covers feature engineering (`features.py`), the candidate/decision store (`store
 - No LLM narration layer yet — SHAP output is currently shown directly rather than turned into recruiter-facing prose.
 
 See [`docs/spec.md`](docs/spec.md) for the full specification, [`docs/decision.md`](docs/decision.md) for design decisions, and [`docs/rules.md`](docs/rules.md) for project rules.
+
+## License
+
+MIT — see [`LICENSE`](LICENSE).
