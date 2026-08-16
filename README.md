@@ -46,6 +46,27 @@ python -m uvicorn main:app --host 127.0.0.1 --port 8000
 
 Open **http://127.0.0.1:8000** — frontend and API are served from the same process.
 
+## Streamlit Community Cloud deployment
+
+`streamlit_app.py` is a Streamlit-native alternative UI that reuses the same scoring, storage, and report logic (`backend/model.py`, `features.py`, `store.py`, `reports.py`) directly in-process — no separate API server. This is what makes the app deployable on [Streamlit Community Cloud](https://share.streamlit.io), which only runs `streamlit run <file>.py` and can't host a standalone FastAPI server.
+
+Run it locally:
+
+```bash
+pip install -r requirements.txt
+streamlit run streamlit_app.py
+```
+
+Deploy it:
+
+1. Push this repo to GitHub (already done if you're reading this on GitHub).
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with GitHub.
+3. Click **New app**, pick this repository and branch.
+4. Set **Main file path** to `streamlit_app.py`.
+5. Click **Deploy**.
+
+**Known limitation:** candidate/decision data is stored in `backend/data/candidates.json` on the container's local filesystem. Streamlit Community Cloud's filesystem is ephemeral — it resets on redeploys and when the app sleeps/wakes — so this is fine for a live demo but not for persistent production storage. The FastAPI deployment path (above) has the same limitation; swapping in a real database is future work, not covered here.
+
 ## Tests
 
 ```bash

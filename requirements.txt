@@ -1,0 +1,14 @@
+# Root requirements for the Streamlit Community Cloud deployment
+# (streamlit_app.py). The FastAPI deployment path uses
+# backend/requirements.txt instead.
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+streamlit
+pdfplumber
+torch
+shap
+scikit-learn
+pandas
+numpy
+reportlab
+pydantic
